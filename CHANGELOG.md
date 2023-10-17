@@ -4,7 +4,22 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### Added
-- Added Security API
+### Dependencies
+- Bumps `@aws-sdk/types` from 3.418.0 to 3.425.0
+- Bumps `@types/node` from 20.6.5 to 20.8.6
+- Bumps `eslint` from 8.50.0 to 8.51.0
+- Bumps `@babel/traverse` from 7.15.0 to 7.23.2
+- Bumps `eslint-plugin-prettier` from 5.0.0 to 5.0.1
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Security
+
+## [2.4.0]
+### Added
+- Added Security API ([#606](https://github.com/opensearch-project/opensearch-js/pull/606))
+- Documentation for edge-case in Sigv4Signer ([#622](https://github.com/opensearch-project/opensearch-js/pull/622))
 ### Dependencies
 - Bumps `rimraf` from 5.0.0 to 5.0.5
 - Bumps `eslint` from 8.41.0 to 8.50.0
@@ -178,8 +193,3 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 
 - Fix mutability of connection headers ([#291](https://github.com/opensearch-project/opensearch-js/issues/291))
-
-[2.1.0]: https://github.com/opensearch-project/opensearch-js/releases/tag/2.1.0
-[2.2.0]: https://github.com/opensearch-project/opensearch-js/releases/tag/2.2.0
-[2.2.1]: https://github.com/opensearch-project/opensearch-js/releases/tag/2.2.1
-[Unreleased]: https://github.com/opensearch-project/opensearch-js/compare/2.2.1...HEAD
