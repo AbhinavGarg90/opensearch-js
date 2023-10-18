@@ -177,6 +177,48 @@ client.bulk({
   console.error(error);
 });
 ```
+## Using helpers to simplify request
+
+You can make a bulk request using a JSON file as your source with the  [syntax mentioned in the documentation](https://opensearch.org/docs/latest/clients/javascript/helpers/):
+```js
+const documents = require('./docs.json');
+
+client.helpers.bulk({
+  datasource: documents,
+  onDocument (doc) {
+    return {
+      index: { _index: 'example-index' }
+    }
+  }
+}).then((response) => {
+  console.log(response)
+}).catch((error) => {
+  console.error(error);
+})
+```
+
+Where your source documentation follows the [newline delimited format](https://opensearch.org/docs/latest/api-reference/document-apis/bulk/):
+```js
+{ "delete": { "_index": "movies", "_id": "tt2229499" } }
+{ "index": { "_index": "movies", "_id": "tt1979320" } }
+{ "title": "Rush", "year": 2013 }
+{ "create": { "_index": "movies", "_id": "tt1392214" } }
+{ "title": "Prisoners", "year": 2013 }
+{ "update": { "_index": "movies", "_id": "tt0816711" } }
+{ "doc" : { "title": "World War Z" } }
+```
+The response object contains the following fields:
+```sh
+{
+  total: number,
+  failed: number,
+  retry: number,
+  successful: number,
+  time: number,
+  bytes: number,
+  aborted: boolean
+}
+```
 
 ## Cleanup
 To clean up the resources created in this guide, delete the `movies` and `books` indices:
@@ -188,3 +230,4 @@ client.indices.delete({
     console.log(response);
 });
 ```
+
